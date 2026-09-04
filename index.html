@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="ブラウザで遊べる横スクロールアクションゲーム">
+    <title>STARBOUND RUNNER</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    ようこそ！私のページへ！！
+    <main class="game-shell">
+        <header class="game-header">
+            <div>
+                <p class="eyebrow">ARCADE / 001</p>
+                <h1>STARBOUND <span>RUNNER</span></h1>
+            </div>
+            <button id="restart-button" class="restart-button" type="button" aria-label="ゲームを最初からやり直す">↻ <span>RESTART</span></button>
+        </header>
+
+        <section class="game-frame" aria-label="横スクロールアクションゲーム">
+            <div class="hud">
+                <div class="hud-item"><span class="hud-label">DISTANCE</span><strong id="distance">0000</strong><small>M</small></div>
+                <div class="hud-item score"><span class="hud-label">STARS</span><strong id="stars">0 / 8</strong></div>
+                <div class="hud-item status"><span class="hud-label">STATUS</span><strong id="status">RUNNING</strong></div>
+            </div>
+            <canvas id="game-canvas" width="960" height="540"></canvas>
+            <div id="message" class="message" hidden>
+                <p class="message-kicker">MISSION COMPLETE</p>
+                <h2>星を集めて、<br>地平線の先へ。</h2>
+                <p id="message-detail">Rキーまたはボタンで再スタート</p>
+                <button id="message-button" type="button">もう一度走る ↗</button>
+            </div>
+        </section>
+
+        <footer class="controls">
+            <div><kbd>A</kbd><kbd>D</kbd> 移動</div>
+            <div><kbd>SPACE</kbd> ジャンプ</div>
+            <p>ゴールまで走り抜けよう</p>
+        </footer>
+    </main>
+    <script src="game.js"></script>
 </body>
 </html>

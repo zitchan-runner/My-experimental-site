@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root { --ink: #17222d; --paper: #eef1eb; --coral: #ef6f61; --yellow: #f5c85b; --blue: #9ed2d1; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; color: var(--ink); background: #d9e1da; font-family: 'Space Grotesk', sans-serif; }
+body::before { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .3; background-image: radial-gradient(#64746d 0.7px, transparent 0.7px); background-size: 13px 13px; }
+.game-shell { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 42px 0 28px; }
+.game-header, .controls { display: flex; align-items: flex-end; justify-content: space-between; }
+.eyebrow, .hud-label, .controls, .message-kicker { margin: 0; font: 500 11px 'DM Mono', monospace; letter-spacing: .12em; }
+h1 { margin: 7px 0 26px; font-size: clamp(30px, 5vw, 58px); line-height: .9; letter-spacing: -.06em; font-weight: 700; }
+h1 span { color: var(--coral); }
+.restart-button, .message button { border: 2px solid var(--ink); background: var(--paper); color: var(--ink); font: 600 12px 'DM Mono', monospace; cursor: pointer; transition: transform .15s, background .15s; }
+.restart-button { padding: 12px 15px; margin-bottom: 26px; }
+.restart-button:hover, .message button:hover { transform: translate(-2px, -2px); background: var(--yellow); }
+.game-frame { position: relative; overflow: hidden; border: 3px solid var(--ink); background: var(--blue); box-shadow: 12px 12px 0 var(--ink); }
+.hud { position: absolute; z-index: 2; top: 0; left: 0; right: 0; display: flex; gap: 30px; padding: 16px 20px; border-bottom: 2px solid rgba(23,34,45,.2); background: rgba(238,241,235,.86); }
+.hud-item { display: flex; align-items: baseline; gap: 7px; }
+.hud-label { font-size: 9px; }
+.hud strong { font: 500 17px 'DM Mono', monospace; }
+.hud small { font: 500 10px 'DM Mono', monospace; }
+.status { margin-left: auto; }
+.status strong { color: #329087; }
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--blue); }
+.message { position: absolute; inset: 0; z-index: 4; display: grid; place-content: center; text-align: center; background: rgba(23,34,45,.9); color: var(--paper); }
+.message[hidden] { display: none; }
+.message-kicker { color: var(--yellow); }
+.message h2 { margin: 12px 0; font-size: clamp(30px, 5vw, 53px); line-height: .95; letter-spacing: -.06em; }
+.message-detail { margin: 0 0 22px; color: #b6c5bd; font: 12px 'DM Mono', monospace; }
+.message button { padding: 13px 18px; }
+.controls { padding-top: 24px; align-items: center; gap: 20px; }
+.controls > div { display: flex; align-items: center; gap: 7px; }
+kbd { display: inline-grid; place-items: center; min-width: 25px; height: 24px; padding: 0 6px; border: 1px solid var(--ink); background: var(--paper); font: 500 10px 'DM Mono', monospace; }
+.controls p { margin: 0; color: #56675f; font-size: 12px; }
+@media (max-width: 600px) { .game-shell { width: calc(100% - 22px); padding-top: 25px; } .game-header { align-items: flex-start; } h1 { margin-bottom: 17px; } .restart-button { margin-top: 2px; margin-bottom: 17px; } .restart-button span { display: none; } .hud { gap: 13px; padding: 12px 10px; } .hud-label { font-size: 7px; } .hud strong { font-size: 12px; } .controls { flex-wrap: wrap; gap: 10px 14px; } .controls p { width: 100%; } }
